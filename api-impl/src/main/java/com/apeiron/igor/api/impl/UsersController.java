@@ -12,24 +12,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/user")
 public class UsersController {
     @Autowired
     private UsersService usersService;
 
-    @GetMapping("/users")
-    public List<UserDto> getUsers() {
-        return UserDto.from(usersService.findAll());
-    }
-
-    @GetMapping("/auth")
-    public Authentication getAuthentication(Authentication authentication) {
-        return authentication;
-    }
-
-    @GetMapping("/users/{user-id}")
-    public User getUser(@PathVariable("user-id") Long userId) {
-        return usersService.findOne(userId);
-    }
 
     @GetMapping("/test")
     public User getTestUser(){
@@ -38,8 +25,9 @@ public class UsersController {
                 .login("bairamovazat")
                 .build();
     }
-    @PostMapping("/users")
-    public ResponseEntity<Object> addUser(@RequestBody UserForm userForm) {
+
+    @PostMapping("")
+    public ResponseEntity<Object> createUser(@RequestBody UserForm userForm) {
         usersService.signUp(userForm);
         return ResponseEntity.ok().build();
     }

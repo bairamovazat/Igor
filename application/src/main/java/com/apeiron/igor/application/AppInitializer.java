@@ -14,7 +14,13 @@ import org.springframework.web.WebApplicationInitializer;
 @Slf4j
 @SpringBootApplication
 @ComponentScan(basePackages = "com.apeiron.igor")
-@Import(value = {AppConfiguration.class, SecurityConfig.class, JpaConfiguration.class, GigaspaceConfig.class})
+@Import(value = {
+        WebConfiguration.class,
+        SecurityConfig.class,
+        JpaConfiguration.class,
+        GigaspaceConfig.class,
+        SpringFoxConfig.class
+})
 public class AppInitializer extends SpringBootServletInitializer implements WebApplicationInitializer {
 
     public static void main(String[] args) {

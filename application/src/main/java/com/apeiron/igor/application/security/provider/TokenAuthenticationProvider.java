@@ -4,6 +4,7 @@ import com.apeiron.igor.application.security.authentications.TokenAuthentication
 import com.apeiron.igor.model.Token;
 import com.apeiron.igor.repository.TokensRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -14,11 +15,13 @@ import org.springframework.stereotype.Component;
 import java.util.Optional;
 
 @Component
+@Qualifier("tokenAuthenticationProvider")
 public class TokenAuthenticationProvider implements AuthenticationProvider {
 
     @Autowired
     private TokensRepository tokensRepository;
 
+    @Qualifier("userDetailsServiceImpl")
     @Autowired
     private UserDetailsService userDetailsService;
 

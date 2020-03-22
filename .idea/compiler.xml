@@ -8,18 +8,20 @@
         <outputRelativeToContentRoot value="true" />
         <module name="api" />
         <module name="api-impl" />
+        <module name="application" />
         <module name="bussines" />
         <module name="dao" />
         <module name="model" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="api" target="1.5" />
-      <module name="api-impl" target="1.5" />
-      <module name="bussines" target="1.5" />
-      <module name="dao" target="1.5" />
+      <module name="api" target="1.8" />
+      <module name="api-impl" target="1.8" />
+      <module name="application" target="1.8" />
+      <module name="bussines" target="1.8" />
+      <module name="dao" target="1.8" />
       <module name="igor" target="1.8" />
-      <module name="model" target="1.5" />
+      <module name="model" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

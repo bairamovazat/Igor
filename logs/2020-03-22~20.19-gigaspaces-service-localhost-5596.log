@@ -1,0 +1,20 @@
+2020-03-22 20:19:30,011  INFO [com.gigaspaces.container] - Starting space...
+********************************* System Report *********************************
+GigaSpaces XAP 15.0.0
+    Home: D:\Zufar\Igor
+    Lookup Groups: xap-15.0.0
+    Lookup Locators: 
+Java:
+    Java Runtime: Java(TM) SE Runtime Environment 10+46 (Oracle Corporation)
+    Java VM: Java HotSpot(TM) 64-Bit Server VM 10+46 ("Oracle Corporation")
+    Java Home: C:\Program Files\Java\jdk-10
+    Memory: Currently used 76MB, Current heap size 142MB, Max heap size 1577MB
+Operating System: Windows 10 [version=10.0, architecture=amd64, processors=4]
+Process Id: 5596
+Network:
+    Local Host: [localhost/127.0.0.1] 
+    lo: Software Loopback Interface 1 [IP addresses: 127.0.0.1 | 0:0:0:0:0:0:0:1]
+*********************************************************************************
+2020-03-22 20:19:30,183  INFO [com.sun.jini.reggie.GigaRegistrar] - Starting Lookup Service...
+2020-03-22 20:19:32,250  INFO [com.sun.jini.reggie.GigaRegistrar] - Started Lookup Service [duration=2.067s, groups=[xap-15.0.0], service-id=e999ac86-2057-47e0-83a0-c8a1ff7a49ba, locator=jini://localhost:4174/]
+2020-03-22 20:19:33,874  INFO [org.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8001"]

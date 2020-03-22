@@ -62,7 +62,18 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+                <plugin>
+                    <groupId>com.heroku.sdk</groupId>
+                    <artifactId>heroku-maven-plugin</artifactId>
+                    <configuration>
+                        <processTypes>
+                            <web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
+                        </processTypes>
+                    </configuration>
+                    <version>3.0.1</version>
+                </plugin>
         </plugins>
+
     </build>
 
     <properties>
@@ -184,5 +195,13 @@
             <version>2.9.2</version>
         </dependency>
     </dependencies>
+	<!--<build>-->
+		<!--<plugins>-->
+			<!--<plugin>-->
+				<!--<groupId>org.springframework.boot</groupId>-->
+				<!--<artifactId>spring-boot-maven-plugin</artifactId>-->
+			<!--</plugin>-->
+		<!--</plugins>-->
+	<!--</build>-->
 
 </project>

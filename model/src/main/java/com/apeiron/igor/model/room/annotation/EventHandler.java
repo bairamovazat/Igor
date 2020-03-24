@@ -1,7 +1,6 @@
 package com.apeiron.igor.model.room.annotation;
 
 import com.apeiron.igor.model.action.Acton;
-import net.bytebuddy.implementation.bind.annotation.RuntimeType;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

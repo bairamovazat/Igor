@@ -50,6 +50,13 @@
         </profile>
     </profiles>
 
+    <repositories>
+        <repository>
+            <id>org.openspaces</id>
+            <url>http://maven-repository.openspaces.org</url>
+        </repository>
+    </repositories>
+
     <build>
         <plugins>
             <plugin>
@@ -66,7 +73,8 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring-boot.version>2.2.2.RELEASE</spring-boot.version>
+        <spring-boot.version>2.1.4.RELEASE</spring-boot.version>
+        <spring-bom.version>4.0.5.RELEASE</spring-bom.version>
         <lombok.version>1.18.12</lombok.version>
         <junit.version>4.13</junit.version>
         <slf4j.version>1.7.25</slf4j.version>
@@ -103,9 +111,26 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <version>${spring-boot.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
         <!--        <dependency>-->
         <!--            <groupId>org.springframework.boot</groupId>-->
@@ -143,6 +168,21 @@
         <!--            <artifactId>commons-codec</artifactId>-->
         <!--            <version>1.9</version>-->
         <!--        </dependency>-->
+        <dependency>
+            <groupId>org.gigaspaces</groupId>
+            <artifactId>xap-openspaces</artifactId>
+            <version>15.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.9.2</version>
+        </dependency>
     </dependencies>
 
 </project>

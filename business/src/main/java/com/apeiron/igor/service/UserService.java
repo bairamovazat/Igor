@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public interface UsersService {
+public interface UserService {
     void signUp(UserForm userForm);
 
     List<User> findAll();

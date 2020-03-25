@@ -4,8 +4,8 @@ import com.apeiron.igor.dto.TokenDto;
 import com.apeiron.igor.form.LoginForm;
 import com.apeiron.igor.model.Token;
 import com.apeiron.igor.model.User;
-import com.apeiron.igor.repository.TokensRepository;
-import com.apeiron.igor.repository.UsersRepository;
+import com.apeiron.igor.repository.TokenRepository;
+import com.apeiron.igor.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -17,17 +17,17 @@ import java.util.UUID;
 public class LoginServiceImpl implements LoginService {
 
     @Autowired
-    private TokensRepository tokensRepository;
+    private TokenRepository tokenRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Autowired
-    private UsersRepository usersRepository;
+    private UserRepository userRepository;
 
     @Override
     public TokenDto login(LoginForm loginForm) {
-        Optional<User> userCandidate = usersRepository.findOneByLogin(loginForm.getLogin());
+        Optional<User> userCandidate = userRepository.findOneByLogin(loginForm.getLogin());
 
         if (userCandidate.isPresent()) {
             User user = userCandidate.get();
@@ -38,7 +38,7 @@ public class LoginServiceImpl implements LoginService {
                         .value(UUID.randomUUID().toString())
                         .build();
 
-                tokensRepository.save(token);
+                tokenRepository.save(token);
                 return TokenDto.from(token);
             }
         }

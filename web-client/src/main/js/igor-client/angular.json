@@ -24,7 +24,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -88,7 +88,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -124,5 +124,10 @@
   "defaultProject": "igor-client",
   "cli": {
     "analytics": "834dfa9b-8a18-4897-9885-28a30b3f09e2"
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
   }
 }

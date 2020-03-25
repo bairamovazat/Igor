@@ -5,7 +5,7 @@ import com.apeiron.igor.form.UserForm;
 import com.apeiron.igor.model.Role;
 import com.apeiron.igor.model.State;
 import com.apeiron.igor.model.User;
-import com.apeiron.igor.repository.UsersRepository;
+import com.apeiron.igor.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -13,10 +13,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UsersServiceImpl implements UsersService {
+public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UsersRepository usersRepository;
+    private UserRepository userRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -33,16 +33,16 @@ public class UsersServiceImpl implements UsersService {
                 .state(State.ACTIVATED)
                 .build();
 
-        usersRepository.save(user);
+        userRepository.save(user);
     }
 
     @Override
     public List<User> findAll() {
-        return usersRepository.findAll();
+        return userRepository.findAll();
     }
 
     @Override
     public User findOne(Long userId) {
-        return usersRepository.findOneById(userId).orElse(null);
+        return userRepository.findOneById(userId).orElse(null);
     }
 }

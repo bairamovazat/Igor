@@ -1,20 +1,19 @@
 package com.apeiron.igor.api.impl;
 
 import com.apeiron.igor.api.RequestPath;
-import com.apeiron.igor.service.UsersService;
+import com.apeiron.igor.service.UserService;
 import com.apeiron.igor.form.UserForm;
 import com.apeiron.igor.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
+@CrossOrigin
 @RestController
 @RequestMapping(RequestPath.USER)
 public class UsersController {
     @Autowired
-    private UsersService usersService;
+    private UserService userService;
 
     @GetMapping("/test")
     public User getTestUser(){
@@ -26,7 +25,7 @@ public class UsersController {
 
     @PostMapping("")
     public ResponseEntity<Object> createUser(@RequestBody UserForm userForm) {
-        usersService.signUp(userForm);
+        userService.signUp(userForm);
         return ResponseEntity.ok().build();
     }
 }

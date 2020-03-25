@@ -1,3 +1,18 @@
-<div>
+<div class="text-center">
+  <div class="form-signin">
+    <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72"
+         height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Авторизация</h1>
 
+    <label for="inputEmail" class="">Логин</label>
+    <input id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus=""
+           [(ngModel)]="loginValue">
+
+    <label for="inputPassword" class="">Пароль</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required=""
+           [(ngModel)]="passwordValue">
+
+    <button class="btn btn-lg btn-primary btn-block" (click)="login()">Войти</button>
+    <a routerLink="/registration" routerLinkActive="active">Регистрация</a>
+  </div>
 </div>

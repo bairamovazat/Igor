@@ -1,6 +1,6 @@
 package com.apeiron.igor.application.security.details;
 
-import com.apeiron.igor.repository.UsersRepository;
+import com.apeiron.igor.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -14,11 +14,11 @@ import org.springframework.stereotype.Service;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    private UsersRepository usersRepository;
+    private UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-        return new UserDetailsImpl(usersRepository.findOneByLogin(login)
+        return new UserDetailsImpl(userRepository.findOneByLogin(login)
                 .orElseThrow(IllegalArgumentException::new));
     }
 }

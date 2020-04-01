@@ -17,7 +17,6 @@ export class RegistrationComponent implements OnInit {
   public lastName:string = "";
   public login: string = "";
   public password: string = "";
-  public passwordConfirm: string = "";
 
   constructor(private _authenticationService:AuthenticationService,
               private _notificationsService:NotificationsService,
@@ -29,17 +28,13 @@ export class RegistrationComponent implements OnInit {
   }
 
   register():void {
-    if(this.password != this.passwordConfirm) {
-      this._notificationsService.error("Пароли не совпадают");
-      return;
-    }
-
     let form:UserForm = new UserForm(this.name, this.lastName, this.login, this.password);
     this._restService.registerUser(form)
       .subscribe(data => {
         this._notificationsService.success("", "Успешная регистрация");
         this._router.navigate([Url.home]);
       }, error => {
+        console.error(error);
         this._notificationsService.error("", "Неверный логин или пароль")
       })
   }

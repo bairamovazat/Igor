@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
         this._notificationsService.success("","Успешная авторизация");
         this._router.navigate([Url.home]);
       }, error => {
+        console.error(error);
         this._notificationsService.error("", "Неверный логин или пароль");
       })
   }

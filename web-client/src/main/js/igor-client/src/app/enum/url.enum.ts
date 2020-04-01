@@ -1,5 +1,7 @@
 export enum Url {
   registration = "registration",
   login = "login",
-  home = "home"
+  home = "home",
+  logout = "logout"
+
 }

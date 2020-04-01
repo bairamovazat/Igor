@@ -23,6 +23,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void signUp(UserForm userForm) {
+        if (userRepository.findOneByLogin(userForm.getLogin()).isPresent()){
+            throw new IllegalArgumentException("Логин уже занят");
+        }
+
         String hashPassword = passwordEncoder.encode(userForm.getPassword());
 
         User user = User.builder()

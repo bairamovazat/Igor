@@ -11,6 +11,7 @@ import {RegistrationComponent} from './component/registration/registration.compo
 import {SimpleNotificationsModule} from 'angular2-notifications';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FormsModule} from "@angular/forms";
+import { LogoutComponent } from './component/logout/logout.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {FormsModule} from "@angular/forms";
     AppComponent,
     LoginComponent,
     HomeComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

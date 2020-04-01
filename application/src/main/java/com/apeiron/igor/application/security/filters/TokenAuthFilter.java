@@ -43,13 +43,6 @@ public class TokenAuthFilter implements Filter {
     }
 
     private String getToken(HttpServletRequest servletRequest) {
-        if(servletRequest.getCookies() == null) {
-            return null;
-        }
-        return Arrays.stream(servletRequest.getCookies())
-                .filter(cookie -> Objects.equals(cookie.getName(), TOKEN_NAME))
-                .findFirst()
-                .map(Cookie::getValue)
-                .orElse(null);
+        return servletRequest.getHeader(TOKEN_NAME);
     }
 }

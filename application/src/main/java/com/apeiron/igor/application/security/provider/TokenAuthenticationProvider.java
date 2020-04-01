@@ -36,7 +36,9 @@ public class TokenAuthenticationProvider implements AuthenticationProvider {
             tokenAuthentication.setUserDetails(userDetails);
             tokenAuthentication.setAuthenticated(true);
             return tokenAuthentication;
-        } else throw new IllegalArgumentException("Bad token");
+        } else {
+            throw new IllegalArgumentException("Bad token");
+        }
     }
 
     @Override

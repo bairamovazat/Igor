@@ -1,10 +1,12 @@
 package com.apeiron.igor.model;
 
-import com.apeiron.igor.model.action.ChosePersonActon;
-import com.apeiron.igor.model.event.ChosePersonEvent;
-import com.apeiron.igor.model.event.Event;
-import com.apeiron.igor.model.room.Room;
-import com.apeiron.igor.model.room.SimpleRoom;
+import com.apeiron.igor.model.memory.action.ChosePersonActon;
+import com.apeiron.igor.model.db.Person;
+import com.apeiron.igor.model.db.User;
+import com.apeiron.igor.model.memory.event.ChosePersonEvent;
+import com.apeiron.igor.model.memory.event.Event;
+import com.apeiron.igor.model.memory.room.Room;
+import com.apeiron.igor.model.memory.room.SimpleRoom;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

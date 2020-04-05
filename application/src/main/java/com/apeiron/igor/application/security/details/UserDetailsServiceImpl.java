@@ -1,5 +1,6 @@
 package com.apeiron.igor.application.security.details;
 
+import com.apeiron.igor.model.config.UserDetailsImpl;
 import com.apeiron.igor.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;

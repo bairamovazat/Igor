@@ -17,6 +17,7 @@ public class TokenController {
     @Autowired
     private LoginService loginService;
 
+    @PreAuthorize("permitAll")
     @GetMapping("")
     public ResponseEntity<TokenDto> login(LoginForm loginForm) {
         return ResponseEntity.ok(loginService.login(loginForm));

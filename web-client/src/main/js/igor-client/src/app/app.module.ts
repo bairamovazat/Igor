@@ -12,6 +12,7 @@ import {SimpleNotificationsModule} from 'angular2-notifications';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FormsModule} from "@angular/forms";
 import { LogoutComponent } from './component/logout/logout.component';
+import { GameSearchComponent } from './component/game-search/game-search.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { LogoutComponent } from './component/logout/logout.component';
     LoginComponent,
     HomeComponent,
     RegistrationComponent,
-    LogoutComponent
+    LogoutComponent,
+    GameSearchComponent
   ],
   imports: [
     BrowserModule,

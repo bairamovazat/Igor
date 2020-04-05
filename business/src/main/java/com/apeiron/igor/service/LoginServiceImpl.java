@@ -2,8 +2,8 @@ package com.apeiron.igor.service;
 
 import com.apeiron.igor.dto.TokenDto;
 import com.apeiron.igor.form.LoginForm;
-import com.apeiron.igor.model.Token;
-import com.apeiron.igor.model.User;
+import com.apeiron.igor.model.db.Token;
+import com.apeiron.igor.model.db.User;
 import com.apeiron.igor.repository.TokenRepository;
 import com.apeiron.igor.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

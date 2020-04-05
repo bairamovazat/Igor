@@ -1,5 +1,6 @@
 package com.apeiron.igor.application.security.authentications;
 
+import com.apeiron.igor.model.config.PrincipalImpl;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,13 +12,13 @@ public class TokenAuthentication implements Authentication {
     private String token;
     private boolean isAuthenticated;
     private UserDetails userDetails;
-
+    private PrincipalImpl principal;
 
     public TokenAuthentication(String token) {
         this.token = token;
     }
 
-    public void setUserDetails(UserDetails userDetails) {
+    public void setDetails(UserDetails userDetails) {
         this.userDetails = userDetails;
     }
 
@@ -38,12 +39,16 @@ public class TokenAuthentication implements Authentication {
 
     @Override
     public Object getPrincipal() {
-        return null;
+        return principal;
+    }
+
+    public void setPrincipal(PrincipalImpl principal) {
+        this.principal = principal;
     }
 
     @Override
     public boolean isAuthenticated() {
-        return false;
+        return isAuthenticated;
     }
 
     @Override

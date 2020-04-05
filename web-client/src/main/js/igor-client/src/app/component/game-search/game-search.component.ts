@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NotificationsService} from "angular2-notifications";
 import {WebsocketService} from "../../service/websocket.service";
 
@@ -10,21 +10,30 @@ import {WebsocketService} from "../../service/websocket.service";
 export class GameSearchComponent implements OnInit {
 
   constructor(
-    private _notificationsService:NotificationsService,
-    private _websocketService:WebsocketService
-  ) { }
+    private _notificationsService: NotificationsService,
+    private _websocketService: WebsocketService
+  ) {
+  }
 
-  private _userId:Number;
+  private _nickName: String;
+  private _userId: Number;
 
   ngOnInit(): void {
 
   }
 
   public inviteUser() {
-    if(this._userId == null || this._userId == 0) {
-      this._notificationsService.error("", "Введите Id пользователя");
+    if (!this._nickName.match("^[A-Za-z0-9]{8,15}$")) {
+      this._notificationsService.error("", "Логин должен содержать 8-15 символов (латинские буквы и цифры).");
+    } else {
+      // TODO: Добавить поиск id по нику в базе
+
+      if (this._userId == null) {
+        this._notificationsService.error("", "Пользователь не найден.");
+      } else {
+        this._websocketService.inviteUser(this._userId);
+      }
     }
-    this._websocketService.inviteUser(this._userId);
   }
 
   get userId(): Number {

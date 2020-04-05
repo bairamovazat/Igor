@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  apiEndpoint: "/api/v1"
+  apiEndpoint: "/api/v1",
+  websocketEndpoint: "/igor-websocket"
 };

@@ -1,6 +1,6 @@
 package com.apeiron.igor.repository;
 
-import com.apeiron.igor.model.User;
+import com.apeiron.igor.model.db.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

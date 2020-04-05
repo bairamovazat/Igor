@@ -1,7 +1,41 @@
-<div class="container">
-  <router-outlet>
+<div class="container-fluid app-component">
+<!--  <div *ngIf="connectedSuccess == null" class="row full-window justify-content-center align-items-center">-->
+<!--    <div class="spinner-border shiner-10" role="status">-->
+<!--      <span class="sr-only">Loading...</span>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div *ngIf="connectedSuccess == false" class="row full-window justify-content-center align-items-center">-->
+<!--    <div class="alert alert-danger alert-dismissible fade show">-->
+<!--      <strong>Ошибка подключения</strong>-->
+<!--    </div>-->
+<!--  </div>-->
+  <div class="full-window">
+    <nav class="navbar navbar-expand navbar-light bg-light">
+      <a class="navbar-brand" href="#">Igor</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#" *ngIf="isAuthenticated" routerLink="/game-search">Найти игру</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#" *ngIf="isAuthenticated" routerLink="/home">Профиль</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" *ngIf="!isAuthenticated" routerLink="/registration">Регистрация</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" *ngIf="!isAuthenticated" routerLink="/login">Авторизация</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" *ngIf="isAuthenticated" routerLink="/logout">Выход</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <router-outlet>
 
-  </router-outlet>
+    </router-outlet>
+  </div>
   <simple-notifications>
 
   </simple-notifications>

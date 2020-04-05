@@ -1,5 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Token} from "../model/token";
+import {User} from "../model/user";
+import {WebsocketService} from "./websocket.service";
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +9,10 @@ import {Token} from "../model/token";
 export class AuthenticationService {
 
   private _token: Token = null;
+  private _user: User = null;
+  private _connectedSuccess: boolean = null;
 
-  constructor() {
+  constructor(private _websocketService:WebsocketService) {
     this.loadFromLocalStorage();
   }
 
@@ -17,8 +21,12 @@ export class AuthenticationService {
     try {
       localStorage.setItem("token", token.value)
     } catch (ignore) {
-
     }
+    this._websocketService.initializeWebSocketConnection(token);
+  }
+
+  public setCurrentUser(user: User) {
+    this._user = user;
   }
 
   public logout() {
@@ -31,16 +39,29 @@ export class AuthenticationService {
 
   private loadFromLocalStorage() {
     let token = localStorage.getItem("token");
-    if(token) {
+    if (token) {
       this._token = new Token(token);
+      this._websocketService.initializeWebSocketConnection(this._token);
     }
   }
 
-  public isAuthenticated(): boolean {
+  get isAuthenticated(): boolean {
     return this._token != null;
   }
 
   public getToken(): string {
     return this._token == null ? null : this._token.value;
+  }
+
+  public getCurrentUser(): User {
+    return null;
+  }
+
+  get connectedSuccess(): boolean {
+    return this._connectedSuccess;
+  }
+
+  set connectedSuccess(value: boolean) {
+    this._connectedSuccess = value;
   }
 }

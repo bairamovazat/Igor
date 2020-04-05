@@ -1,6 +1,6 @@
 package com.apeiron.igor.dto;
 
-import com.apeiron.igor.model.Token;
+import com.apeiron.igor.model.db.Token;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

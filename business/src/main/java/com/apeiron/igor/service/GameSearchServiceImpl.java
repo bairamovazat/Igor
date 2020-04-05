@@ -37,6 +37,5 @@ public class GameSearchServiceImpl implements GameSearchService {
 
         gameInviteRepository.create(gameInvite);
         simpMessagingTemplate.convertAndSendToUser(invitedUser.getLogin(), "/queue/invite/incoming", gameInvite);
-
     }
 }

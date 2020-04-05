@@ -13,6 +13,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FormsModule} from "@angular/forms";
 import { LogoutComponent } from './component/logout/logout.component';
 import { GameSearchComponent } from './component/game-search/game-search.component';
+import { GameRoomComponent } from './component/game-room/game-room.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { GameSearchComponent } from './component/game-search/game-search.compone
     HomeComponent,
     RegistrationComponent,
     LogoutComponent,
-    GameSearchComponent
+    GameSearchComponent,
+    GameRoomComponent
   ],
   imports: [
     BrowserModule,

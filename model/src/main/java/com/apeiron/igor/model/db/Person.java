@@ -17,6 +17,13 @@ public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    private String personName;
+
+    private PersonType type;
+
+    private Integer attack;
+
+    private Integer health;
+
+    private String name;
+
 }

@@ -13,6 +13,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FormsModule} from "@angular/forms";
 import { LogoutComponent } from './component/logout/logout.component';
 import { GameSearchComponent } from './component/game-search/game-search.component';
+import {NotifService} from "./service/notif.service.extence";
 
 
 @NgModule({
@@ -33,7 +34,7 @@ import { GameSearchComponent } from './component/game-search/game-search.compone
     BrowserAnimationsModule,
     SimpleNotificationsModule.forRoot()
   ],
-  providers: [],
+  providers: [NotifService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

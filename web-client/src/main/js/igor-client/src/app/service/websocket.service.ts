@@ -6,6 +6,7 @@ import {WebsocketUrl} from "../enum/websocket-url";
 import {AuthenticationService} from "./authentication.service";
 import {Token} from "../model/token";
 import {GameInvite} from "../model/game-invite";
+import {NotifService} from "./notif.service.extence";
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class WebsocketService {
   private stompClient;
   private _isConnected: boolean = false;
 
-  constructor(private _notificationsService: NotificationsService) {
+  constructor(private _notificationsService: NotificationsService, private notifServiceExt: NotifService) {
     // this.initializeWebSocketConnection();
   }
 
@@ -52,8 +53,19 @@ export class WebsocketService {
 
   private subscribe() {
     this.stompClient.subscribe(WebsocketUrl.subscribeIncomingInvite, (message) => {
-      this._notificationsService.success("success", message);
+      this.notifServiceExt.action(
+        'Битва!',
+        `Начать поединок: <button class="btn btn-primary">Do it!</button>`,
+        'btn',
+        () => this.actionplaceholder()
+      )
+      //this._notificationsService.success("success", message);
+      //this.actionplaceholder();
     });
+  }
+
+  private actionplaceholder(){
+    this._notificationsService.success("success", "message")
   }
 
   public inviteUser(userId: Number) {

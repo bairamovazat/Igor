@@ -10,13 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ChosePersonEvent implements Event {
-    private Boolean success;
+public class StartGame implements Event {
+    public String eventName = "StartGame";
 
-    private User recipientUser;
-
-    @Override
-    public User getRecipientUser() {
-        return recipientUser;
-    }
+    public User user;
 }

@@ -7,17 +7,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ChosePersonActon implements Acton {
-    private User sendingUser;
+public class ChosePerson implements Acton {
+    private String actionName;
+    private List<Person> personList;
 
-    private Person selectedPerson;
-
-    @Override
-    public User getSendingUser() {
-        return sendingUser;
-    }
+    public User user;
 }

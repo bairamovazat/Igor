@@ -61,8 +61,7 @@ export class WebsocketService {
     gameInvite.invited = userId;
     this.stompClient.send(WebsocketUrl.inviteUser, {}, JSON.stringify(gameInvite));
   }
-
-
+  
   get isConnected(): boolean {
     return this._isConnected;
   }

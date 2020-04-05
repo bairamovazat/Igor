@@ -64,15 +64,6 @@
         </repository>
     </repositories>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
-
     <properties>
         <!--        <start-class>ru.ivmiit.web.config.AppInitializer</start-class>-->
         <java.version>1.8</java.version>

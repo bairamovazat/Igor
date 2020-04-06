@@ -1,0 +1,14 @@
+<div class="select-person">
+  <div><label>Выберите 3 персонажа</label></div>
+  <div class="select-person-cards">
+    <div *ngFor="let person of personList" (click)="selectPerson(person)" [class]="getPersonStyle(person)">
+      <img  class="select-person-img" [src]="person.getPersonImageSrc()">
+      <div>
+        Имя: {{person.name}}
+      </div>
+    </div>
+  </div>
+  <div class="select-button">
+    <button (click)="selectPersons()" class="btn btn-primary">Выбрать</button>
+  </div>
+</div>

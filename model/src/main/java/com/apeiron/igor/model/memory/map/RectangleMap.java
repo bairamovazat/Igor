@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class RectangleMap {
+public class RectangleMap implements Map {
     public Integer width = 5;
     public Integer height = 5;
 }

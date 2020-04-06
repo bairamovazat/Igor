@@ -7,4 +7,6 @@ import java.security.Principal;
 
 public interface GameSearchService {
     void createInvite(GameInvite gameInvite, PrincipalImpl webSocketPrincipal);
+
+    void acceptInvite(GameInvite msg, PrincipalImpl webSocketPrincipal);
 }

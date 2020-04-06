@@ -36,12 +36,12 @@ export class NotifService {
 
   //Beautiful popmessage
   action(title: string, content: string, actionClass: string, actionFct: Function) {
-    const html = this.sanitizer.bypassSecurityTrustHtml(`
+    const html = (`
             <div class="sn-title">${ title }<div>
             <div class="sn-content">${ content }<div>`);
 
     const options = {
-      timeOut: 5000,
+      timeOut: 15000,
       clickToClose: false,
       id: `custom${ new Date().getTime() }`
     }

@@ -2,22 +2,59 @@
   display: flex;
   flex-flow: row;
   justify-content: space-between;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .your-person-cards {
   display: flex;
-  flex-flow: row;
-  width: 50%;
+  flex-flow: column;
+  width: 130px;
+  background: #0086B3;
+  border: solid 1px;
+}
+
+.your-person-card {
+  border: solid 1px;
 }
 
 .enemy-player-person-cards {
   display: flex;
-  flex-flow: row;
-  width: 50%;
+  flex-flow: column;
+  width: 130px;
+  background: #C21F39;
+  border: solid 1px;
+}
+
+.enemy-player-person-card {
+  border: solid 1px;
 }
 
 .person-img {
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
+}
+
+.game-info {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+}
+
+.selected-person {
+  background: #C21F39;
+}
+
+.selected-person:hover {
+  transform: translateY(2px);
+}
+
+.not-selected-person {
+  background: rgba(194, 31, 57, 0.7);
+}
+
+.chosen-person {
+  border: solid 3px;
+  background: #0744b3;
 }
 

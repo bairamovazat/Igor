@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class GameEnd implements Event {
+    @Builder.Default
     public String eventName = "GameEnd";
     public Boolean win;
     public Integer experience;

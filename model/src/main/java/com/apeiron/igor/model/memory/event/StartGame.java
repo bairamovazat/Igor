@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class StartGame implements Event {
+    @Builder.Default
     public String eventName = "StartGame";
 
     public User user;

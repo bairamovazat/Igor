@@ -23,5 +23,4 @@ public class NewGame {
     private Map gameMap;
     private List<Person> yourPersons;
     private List<Person> enemyPlayerPersons;
-
 }

@@ -1,19 +1,42 @@
 <div>
+  <div class="game-info">
+    <label *ngIf="gameSocketAdapter.yourStep">Ваш ход!</label>
+    <label *ngIf="!gameSocketAdapter.yourStep">Ожидайте очереди ход!</label>
+  </div>
   <div class="persons-stats">
     <div class="your-person-cards">
-      <div *ngFor="let person of gameSocketAdapter.currentGame.yourPersons">
+      <div class="your-person-card"
+           *ngFor="let person of gameSocketAdapter.currentGame.yourPersons" [class]="getPersonClass(person)">
         <img class="person-img" [src]="person.getPersonImageSrc()">
-        <div>
-          Имя: {{person.name}}
+        <div style="">
+          <div>
+            Имя: {{person.name}}
+          </div>
+          <div>
+            Атака: {{person.attack}}
+          </div>
+          <div>
+            Жизни: {{person.currentHealth}}
+          </div>
         </div>
       </div>
     </div>
 
     <div class="enemy-player-person-cards">
-      <div *ngFor="let person of gameSocketAdapter.currentGame.enemyPlayerPersons" >
+      <div class="enemy-player-person-card"
+           *ngFor="let person of gameSocketAdapter.currentGame.enemyPlayerPersons" [class]="getEnemyPlayerPersonClass()"
+      (click)="attackEnemyPerson(person)">
         <img class="person-img" [src]="person.getPersonImageSrc()">
         <div>
-          Имя: {{person.name}}
+          <div>
+            Имя: {{person.name}}
+          </div>
+          <div>
+            Атака: {{person.attack}}
+          </div>
+          <div>
+            Жизни: {{person.currentHealth}}
+          </div>
         </div>
       </div>
     </div>

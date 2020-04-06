@@ -12,11 +12,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class Attack implements Acton {
-    public String actionName = "Attack";
-    public Integer xAbscissa;
-    public Integer yOrdinate;
-    public Person person;
+    @Builder.Default
+    private String actionName = "Attack";
 
-    public User user;
+    private Integer x;
+    private Integer y;
+    private Person person;
+
+    private User user;
 
 }

@@ -8,7 +8,7 @@ import {AuthenticationGuard} from "./guard/authentication.guard";
 import {RegistrationComponent} from "./component/registration/registration.component";
 import {LogoutComponent} from "./component/logout/logout.component";
 import {GameSearchComponent} from "./component/game-search/game-search.component";
-import {DemoRoomComponent} from "./component/demo-room/demo-room.component";
+import {GameRoomComponent} from "./component/game-room/game-room.component";
 
 const routes: Routes = [
   {path: '', redirectTo: Url.home, pathMatch: "full"},
@@ -17,7 +17,7 @@ const routes: Routes = [
   {path: Url.home, component: HomeComponent, canActivate: [AuthenticationGuard]},
   {path: Url.logout, component: LogoutComponent, canActivate: [AuthenticationGuard]},
   {path: Url.gameSearch, component: GameSearchComponent, canActivate: [AuthenticationGuard]},
-  {path: "demo", component: DemoRoomComponent, canActivate: [AuthenticationGuard]},
+  {path: Url.game + "/:id", component: GameRoomComponent, canActivate: [AuthenticationGuard]},
 
 ];
 

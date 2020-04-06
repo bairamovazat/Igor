@@ -69,6 +69,6 @@ public abstract class AbstractRoom implements Room {
     }
 
     public <T extends Event> void callback(Event event) {
-        roomCallback.callback(event);
+        roomCallback.callback(event, this.getId());
     }
 }

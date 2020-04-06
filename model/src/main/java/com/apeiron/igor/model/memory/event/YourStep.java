@@ -11,7 +11,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class YourStep implements Event {
+    @Builder.Default
     public String eventName = "YourStep";
 
+    public Long personId;
     public User user;
 }

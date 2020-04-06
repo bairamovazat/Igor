@@ -15,7 +15,6 @@ import { LogoutComponent } from './component/logout/logout.component';
 import { GameSearchComponent } from './component/game-search/game-search.component';
 import { GameRoomComponent } from './component/game-room/game-room.component';
 import { SelectPersonComponent } from './component/secect-person/select-person.component';
-import { DemoRoomComponent } from './component/demo-room/demo-room.component';
 import { GamePlaygroundComponent } from './component/game-playground/game-playground.component';
 import {NotifService} from "./service/notif.service.extence";
 
@@ -30,7 +29,6 @@ import {NotifService} from "./service/notif.service.extence";
     GameSearchComponent,
     GameRoomComponent,
     SelectPersonComponent,
-    DemoRoomComponent,
     GamePlaygroundComponent,
   ],
   imports: [

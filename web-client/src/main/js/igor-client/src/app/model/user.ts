@@ -5,7 +5,7 @@ export class User {
   private _password:string;
   private _email:string;
 
-  constructor(id: number, login: string, name: string, password: string, email: string) {
+  constructor(id?: number, login?: string, name?: string, password?: string, email?: string) {
     this._id = id;
     this._login = login;
     this._name = name;
@@ -51,5 +51,9 @@ export class User {
 
   set email(value: string) {
     this._email = value;
+  }
+
+  public static fromJson(object:JSON):User{
+    return Object.assign(new User(), object);
   }
 }

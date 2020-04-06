@@ -8,6 +8,13 @@ import {Token} from "../model/token";
 import {GameInvite} from "../model/game-invite";
 import {GameSocketAdapter} from "../model/game-socket-adapter";
 import {NotifService} from "./notif.service.extence";
+import {GameService} from "./game.service";
+import {NewGame} from "../model/new-game";
+import {User} from "../model/user";
+import {Person} from "../model/person";
+import {GameMap} from "../model/game-map";
+import {Router} from "@angular/router";
+import {Url} from "../enum/url.enum";
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +26,10 @@ export class WebsocketService {
   private stompClient;
   private _isConnected: boolean = false;
 
-  constructor(private _notificationsService: NotificationsService, private notifServiceExt: NotifService) {
+  constructor(private _notificationsService: NotificationsService,
+              private notifServiceExt: NotifService,
+              private _gameService: GameService,
+              private _router: Router) {
     // this.initializeWebSocketConnection();
   }
 
@@ -54,19 +64,26 @@ export class WebsocketService {
 
   private subscribe() {
     this.stompClient.subscribe(WebsocketUrl.subscribeIncomingInvite, (message) => {
+      let data = JSON.parse(message.body);
+
       this.notifServiceExt.action(
-        'Битва!',
-        `Начать поединок: <button class="btn btn-primary">Do it!</button>`,
+        'Битва c ' + data.initiatorLogin + '!',
+        `Начать поединок: <button class="btn btn-primary">Вперёд!</button>`,
         'btn',
-        () => this.actionplaceholder()
+        () => this.acceptInvite(data)
       )
-      //this._notificationsService.success("success", message);
-      //this.actionplaceholder();
+    });
+    this.stompClient.subscribe(WebsocketUrl.subscribeNewGame, (message) => {
+      let data = JSON.parse(message.body);
+      const newGame: NewGame = NewGame.fromJson(data);
+      console.log(newGame);
+      this._gameService.includeGameToStorage(newGame);
+      this._router.navigate([Url.game + "/" + newGame.id]);
     });
   }
 
-  private actionplaceholder(){
-    this._notificationsService.success("success", "message")
+  public acceptInvite(gameInvite: GameInvite) {
+    this.stompClient.send(WebsocketUrl.acceptInvite, {}, JSON.stringify(gameInvite));
   }
 
   public inviteUser(userLogin: string) {
@@ -83,7 +100,7 @@ export class WebsocketService {
     this._isConnected = value;
   }
 
-  public fillStompClient(gameSocketAdapter:GameSocketAdapter) {
+  public fillStompClient(gameSocketAdapter: GameSocketAdapter) {
     gameSocketAdapter.stompClient = this.stompClient;
   }
 }

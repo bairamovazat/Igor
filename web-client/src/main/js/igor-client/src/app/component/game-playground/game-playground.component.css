@@ -1,0 +1,23 @@
+.persons-stats {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+.your-person-cards {
+  display: flex;
+  flex-flow: row;
+  width: 50%;
+}
+
+.enemy-player-person-cards {
+  display: flex;
+  flex-flow: row;
+  width: 50%;
+}
+
+.person-img {
+  width: 100px;
+  height: 100px;
+}
+

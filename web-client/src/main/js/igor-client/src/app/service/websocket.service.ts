@@ -6,6 +6,7 @@ import {WebsocketUrl} from "../enum/websocket-url";
 import {AuthenticationService} from "./authentication.service";
 import {Token} from "../model/token";
 import {GameInvite} from "../model/game-invite";
+import {GameSocketAdapter} from "../model/game-socket-adapter";
 
 @Injectable({
   providedIn: 'root'
@@ -61,12 +62,16 @@ export class WebsocketService {
     gameInvite.invited = userId;
     this.stompClient.send(WebsocketUrl.inviteUser, {}, JSON.stringify(gameInvite));
   }
-  
+
   get isConnected(): boolean {
     return this._isConnected;
   }
 
   set isConnected(value: boolean) {
     this._isConnected = value;
+  }
+
+  public fillStompClient(gameSocketAdapter:GameSocketAdapter) {
+    gameSocketAdapter.stompClient = this.stompClient;
   }
 }

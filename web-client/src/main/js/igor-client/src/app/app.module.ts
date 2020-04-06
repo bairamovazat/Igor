@@ -14,6 +14,9 @@ import {FormsModule} from "@angular/forms";
 import { LogoutComponent } from './component/logout/logout.component';
 import { GameSearchComponent } from './component/game-search/game-search.component';
 import { GameRoomComponent } from './component/game-room/game-room.component';
+import { SelectPersonComponent } from './component/secect-person/select-person.component';
+import { DemoRoomComponent } from './component/demo-room/demo-room.component';
+import { GamePlaygroundComponent } from './component/game-playground/game-playground.component';
 
 
 @NgModule({
@@ -24,7 +27,10 @@ import { GameRoomComponent } from './component/game-room/game-room.component';
     RegistrationComponent,
     LogoutComponent,
     GameSearchComponent,
-    GameRoomComponent
+    GameRoomComponent,
+    SelectPersonComponent,
+    DemoRoomComponent,
+    GamePlaygroundComponent,
   ],
   imports: [
     BrowserModule,

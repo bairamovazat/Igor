@@ -5,4 +5,5 @@ public class RequestPath {
     public static final String TOKEN = API + "/token";
     public static final String USER = API + "/user";
     public static final String GAME_SEARCH = API + "/game-search";
+    public static final String GAME = "/game";
 }

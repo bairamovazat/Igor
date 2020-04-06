@@ -18,6 +18,7 @@ public abstract class AbstractRoom implements Room {
     private RoomCallback roomCallback;
     private HashMap<Class<? extends Acton>, BiConsumer<Room, Acton>> eventProcessMethodMap = new HashMap<>();
     protected Logger logger = LoggerFactory.getLogger(this.getClass());
+    private String id;
 
     public AbstractRoom(RoomCallback roomCallback) {
         this.roomCallback = roomCallback;
@@ -46,6 +47,15 @@ public abstract class AbstractRoom implements Room {
                 eventProcessMethodMap.put(actionClass, runMethod);
             }
         });
+    }
+
+    @Override
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     @Override

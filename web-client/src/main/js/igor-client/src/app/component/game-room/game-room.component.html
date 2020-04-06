@@ -1,3 +1,4 @@
 <div>
-  GameRoom
+  <app-select-person [personList]="currentGame.personList" [returnValues]="selectPersonCallBack" *ngIf="!personIsChosen"></app-select-person>
+  <app-game-playground [gameSocketAdapter]="gameSocketAdapter"></app-game-playground>
 </div>

@@ -1,0 +1,23 @@
+<div>
+  <div class="form-control">
+    <label>Пригласть игрока
+      <input placeholder="Id игрока" type="number" [(ngModel)]="userId" min="1">
+      <button (click)="inviteUser()">Пригласть</button>
+    </label>
+
+
+    <table>
+      <thead>
+      <th>Инициатор</th>
+      <th>Приглашаемый</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let hero of _incomingGameEvents">
+        <td>{{hero.initiator.toString()}}</td>
+        <td>{{hero.invited.toString()}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

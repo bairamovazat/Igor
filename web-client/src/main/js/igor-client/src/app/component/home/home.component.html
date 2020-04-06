@@ -1,1 +1,38 @@
-<p>User: {{user}}</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="home.component.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="h2Line">
+  <div class="container">
+    <div class="row">
+      <h2 class="h2Line">{{user.login}}</h2>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row" style="margin-top: 30px">
+    <div class="col-sm-4">
+      <img src="https://sun9-48.userapi.com/c854420/v854420929/215681/yEQqMGZqXRg.jpg" class="img-fluid">
+    </div>
+    <div class="col-sm-8, accountData">
+      <h3 style="margin-top: 10px"><b>Nickname:</b> {{user.login}} </h3>
+      <p><b>Name:</b> {{user.name}}</p>
+      <p><b>Email adress:</b> {{user.email}}</p>
+      <p><b>ID:</b> {{user.id}}</p>
+      <p><b>Placeholder1:</b> placeholder</p>
+      <p><b>Placeholder2:</b> placeholder</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

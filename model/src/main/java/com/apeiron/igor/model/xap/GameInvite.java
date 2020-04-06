@@ -25,6 +25,8 @@ public class GameInvite {
     //Кто получит
     private Long invited;
 
+    public String invitedLogin;
+
     private Boolean invitedUserAccept;
 
     private Boolean closed;

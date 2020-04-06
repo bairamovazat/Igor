@@ -69,9 +69,9 @@ export class WebsocketService {
     this._notificationsService.success("success", "message")
   }
 
-  public inviteUser(userId: Number) {
+  public inviteUser(userLogin: string) {
     let gameInvite: GameInvite = new GameInvite();
-    gameInvite.invited = userId;
+    gameInvite.invitedLogin = userLogin;
     this.stompClient.send(WebsocketUrl.inviteUser, {}, JSON.stringify(gameInvite));
   }
 

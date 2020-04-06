@@ -15,32 +15,32 @@ export class GameSearchComponent implements OnInit {
   ) {
   }
 
-  private _nickName: String;
-  private _userId: Number;
+  private _userLogin: string;
 
   ngOnInit(): void {
 
   }
 
   public inviteUser() {
-    if (!this._nickName.match("^[A-Za-z0-9]{8,15}$")) {
-      this._notificationsService.error("", "Логин должен содержать 8-15 символов (латинские буквы и цифры).");
+    if (!this._userLogin.match("^[A-Za-z0-9]{2,15}$")) {
+      this._notificationsService.error("", "Логин должен содержать 2-15 символов (латинские буквы и цифры).");
     } else {
       // TODO: Добавить поиск id по нику в базе
 
-      if (this._userId == null) {
+      if (this._userLogin == null) {
         this._notificationsService.error("", "Пользователь не найден.");
       } else {
-        this._websocketService.inviteUser(this._userId);
+        this._websocketService.inviteUser(this._userLogin);
       }
     }
   }
 
-  get userId(): Number {
-    return this._userId;
+
+  get userLogin(): string {
+    return this._userLogin;
   }
 
-  set userId(value: Number) {
-    this._userId = value;
+  set userLogin(value: string) {
+    this._userLogin = value;
   }
 }

@@ -7,6 +7,8 @@ export class GameInvite {
   //Кто получит
   public invited: Number;
 
+  public invitedLogin:string;
+
   public invitedUserAccept: Number;
 
   public closed: Number;

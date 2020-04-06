@@ -1,27 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="home.component.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-<div class="h2Line">
-  <div class="container">
-    <div class="row">
+<div *ngIf="user">
+  <div class="h2Line row">
+    <div class="row" style="padding-left: 25px">
       <h2 class="h2Line">{{user.login}}</h2>
     </div>
   </div>
-</div>
-<div class="container">
+
   <div class="row" style="margin-top: 30px">
-    <div class="col-sm-4">
-      <img src="https://sun9-48.userapi.com/c854420/v854420929/215681/yEQqMGZqXRg.jpg" class="img-fluid">
+    <div class="col-sm-4" style="display: flex; flex-direction: column; align-items: flex-end">
+      <img src="/assets/user-icon.jpg" class="img-fluid user-img">
     </div>
     <div class="col-sm-8, accountData">
       <h3 style="margin-top: 10px"><b>Nickname:</b> {{user.login}} </h3>
@@ -32,7 +18,5 @@
       <p><b>Placeholder2:</b> placeholder</p>
     </div>
   </div>
-</div>
 
-</body>
-</html>
+</div>

@@ -42,8 +42,8 @@ export class RegistrationComponent implements OnInit {
       valid = false;
     }
 
-    if (!this.login.match("^[A-Za-z0-9]{8,15}$")) {
-      this._notificationsService.error("", "Логин должен содержать 8-15 символов (латинские буквы и цифры).");
+    if (!this.login.match("^[A-Za-z0-9]{2,15}$")) {
+      this._notificationsService.error("", "Логин должен содержать 2-15 символов (латинские буквы и цифры).");
       valid = false;
     }
 

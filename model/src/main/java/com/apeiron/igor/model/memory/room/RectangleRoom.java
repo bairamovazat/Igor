@@ -24,6 +24,8 @@ public class RectangleRoom extends AbstractRoom {
 
     public HashMap<Long, Integer> userIdCurrentPersons = new HashMap<>();
 
+    public boolean gameEnd = false;
+
     public RectangleRoom(RoomCallback roomCallback, List<User> userList) {
         super(roomCallback);
         this.userList = userList;
@@ -144,14 +146,20 @@ public class RectangleRoom extends AbstractRoom {
     }
 
     private Long getCurrentPersonId(User user) {
-        Integer currentPerson = userIdCurrentPersons.get(user.getId());
-        Integer result = currentPerson;
-        currentPerson = currentPerson + 1;
-        if(currentPerson >= userIdPersons.get(user.getId()).size()) {
-            currentPerson = 0;
+        if(userIdPersons.get(user.getId()).stream().allMatch(e -> e.getHealth() <= 0)) {
+            return null;
         }
-        userIdCurrentPersons.put(user.getId(), currentPerson);
-        return userIdPersons.get(user.getId()).get(result).getId();
+        Integer currentPersonNumber = userIdCurrentPersons.get(user.getId());
+        Integer resultNumber = currentPersonNumber;
+        currentPersonNumber = currentPersonNumber + 1;
+        if(currentPersonNumber >= userIdPersons.get(user.getId()).size()) {
+            currentPersonNumber = 0;
+        }
+        userIdCurrentPersons.put(user.getId(), currentPersonNumber);
+        if(userIdPersons.get(user.getId()).get(resultNumber).getHealth() <= 0) {
+            return getCurrentPersonId(user);
+        }
+        return userIdPersons.get(user.getId()).get(resultNumber).getId();
     }
 
     @Override

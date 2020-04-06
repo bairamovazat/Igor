@@ -8,7 +8,6 @@ import {EnemyPlayerChosePerson} from "./game-events/enemy-player-chose-person";
 import {GameUrl} from "../enum/game-url";
 import {GameEnd} from "./game-events/game-end";
 import {EnemyPlayerAttack} from "./game-events/enemy-player-attack";
-import {emitKeypressEvents} from "readline";
 
 export class GameSocketAdapter {
 

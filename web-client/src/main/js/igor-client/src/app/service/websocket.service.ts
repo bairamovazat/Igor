@@ -57,7 +57,7 @@ export class WebsocketService {
       }, error => {
         this._isConnected = false;
         console.log(error);
-        this._notificationsService.error("Соединение", "Ошибка создания подключения");
+        // this._notificationsService.error("Соединение", "Ошибка создания подключения");
       }
     );
   }

@@ -45,9 +45,9 @@ export class GameRoomComponent implements OnInit {
       console.log(gameId);
       that.currentGame = that.gameService.getGameById(gameId);
       console.log(that.currentGame);
-      // if(this.currentGame == null) {
-      //   this.router.navigate([Url.home])
-      // }
+      if(this.currentGame == null) {
+        this.router.navigate([Url.home])
+      }
       that.gameSocketAdapter = new GameSocketAdapter(that.currentGame, that.webSocketService);
       console.log(that.gameSocketAdapter);
     });

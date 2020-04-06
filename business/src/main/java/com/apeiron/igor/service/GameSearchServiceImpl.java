@@ -25,8 +25,17 @@ public class GameSearchServiceImpl implements GameSearchService {
 
     @Override
     public void createInvite(GameInvite gameInvite, PrincipalImpl webSocketPrincipal) {
-        User invitedUser = userRepository.findOneById(gameInvite.getInvited())
-                .orElseThrow(() -> new IllegalArgumentException("Приглашаемый пользователь не найден"));
+        User invitedUser;
+        if (gameInvite.getInvited() != null) {
+            invitedUser = userRepository.findOneById(gameInvite.getInvited())
+                    .orElseThrow(() -> new IllegalArgumentException("Приглашаемый пользователь не найден"));
+
+        } else if (gameInvite.getInvitedLogin() != null) {
+            invitedUser = userRepository.findOneByLogin(gameInvite.getInvitedLogin())
+                    .orElseThrow(() -> new IllegalArgumentException("Приглашаемый пользователь не найден"));
+        } else {
+            throw new IllegalArgumentException("Приглашение пустое");
+        }
 
         User initiatorUser = userRepository.findOneById(webSocketPrincipal.getUser().getId())
                 .orElseThrow(() -> new IllegalArgumentException("Приглашающий пользователь не найден"));

@@ -1,2 +1,2 @@
 # Igor project
-## Turn based strategy game
+## Turn based strategy newGame

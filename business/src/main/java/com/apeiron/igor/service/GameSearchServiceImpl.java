@@ -23,6 +23,9 @@ public class GameSearchServiceImpl implements GameSearchService {
     @Autowired
     private GameInviteRepository gameInviteRepository;
 
+    @Autowired
+    private GameService gameService;
+
     @Override
     public void createInvite(GameInvite gameInvite, PrincipalImpl webSocketPrincipal) {
         User invitedUser;
@@ -40,11 +43,32 @@ public class GameSearchServiceImpl implements GameSearchService {
         User initiatorUser = userRepository.findOneById(webSocketPrincipal.getUser().getId())
                 .orElseThrow(() -> new IllegalArgumentException("Приглашающий пользователь не найден"));
 
+        if (initiatorUser.getId().equals(invitedUser.getId())) {
+            throw new IllegalArgumentException("Нельзя пригласить самого себя");
+        }
+
         gameInvite.setClosed(false);
         gameInvite.setInitiator(initiatorUser.getId());
+        gameInvite.setInitiatorLogin(initiatorUser.getLogin());
+        gameInvite.setInvited(invitedUser.getId());
+        gameInvite.setInitiatorLogin(invitedUser.getLogin());
+
         gameInvite.setInvitedUserAccept(null);
 
         gameInviteRepository.create(gameInvite);
         simpMessagingTemplate.convertAndSendToUser(invitedUser.getLogin(), "/queue/invite/incoming", gameInvite);
+    }
+
+    @Override
+    public void acceptInvite(GameInvite gameInvite, PrincipalImpl principal) {
+
+        if (gameInvite.getInvited() == null ||
+                !gameInvite.getInvited().equals(principal.getUser().getId()) ||
+                gameInvite.getInitiator() == null) {
+            throw new IllegalArgumentException("Некорретные данные пользователей");
+        }
+
+        gameService.startRoom(gameInvite);
+
     }
 }

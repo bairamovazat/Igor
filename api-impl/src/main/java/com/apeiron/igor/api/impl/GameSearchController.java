@@ -45,4 +45,9 @@ public class GameSearchController {
     public void createInvite(@Payload GameInvite msg, Principal principal) throws Exception {
         gameSearchService.createInvite(msg, (PrincipalImpl) principal);
     }
+
+    @MessageMapping("/invite/accept")
+    public void acceptInvite(@Payload GameInvite msg, Principal principal) throws Exception {
+        gameSearchService.acceptInvite(msg, (PrincipalImpl) principal);
+    }
 }

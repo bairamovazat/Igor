@@ -1,10 +1,8 @@
 package com.apeiron.igor.repository.impl;
 
 import com.apeiron.igor.model.db.User;
-import com.apeiron.igor.model.memory.room.AbstractRoom;
 import com.apeiron.igor.model.memory.room.RectangleRoom;
-import com.apeiron.igor.model.memory.room.Room;
-import com.apeiron.igor.repository.GameRepository;
+import com.apeiron.igor.repository.RoomRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -14,7 +12,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Repository
-public class GameRepositoryImpl implements GameRepository {
+public class RoomRepositoryImpl implements RoomRepository {
 
     private Map<String, RectangleRoom> memoryStorage = new HashMap<>();
 
@@ -31,5 +29,10 @@ public class GameRepositoryImpl implements GameRepository {
         return memoryStorage.values().stream()
                 .filter(e -> e.userContains(user))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public RectangleRoom getById(String id) {
+        return memoryStorage.get(id);
     }
 }

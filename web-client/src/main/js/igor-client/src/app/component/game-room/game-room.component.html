@@ -1,4 +1,12 @@
-<div>
+<div *ngIf="currentGame != null">
   <app-select-person [personList]="currentGame.personList" [returnValues]="selectPersonCallBack" *ngIf="!personIsChosen"></app-select-person>
-  <app-game-playground [gameSocketAdapter]="gameSocketAdapter"></app-game-playground>
+  <app-game-playground [gameSocketAdapter]="gameSocketAdapter" *ngIf="gameSocketAdapter.gameStarted && gameSocketAdapter.gameEnd == null"></app-game-playground>
+  <div *ngIf="gameSocketAdapter.gameEnd != null">
+    <h2>Конец игры!</h2>
+    <br>
+    <h3 *ngIf="gameSocketAdapter.gameEnd.win">Вы победили!</h3>
+    <h3 *ngIf="!gameSocketAdapter.gameEnd.win">Вы проиграли!</h3>
+    <br>
+    <h3>Опыт {{gameSocketAdapter.gameEnd.experience}}!</h3>
+  </div>
 </div>

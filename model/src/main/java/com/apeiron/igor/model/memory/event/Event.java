@@ -4,4 +4,5 @@ import com.apeiron.igor.model.db.User;
 
 public interface Event {
     User getUser();
+    String getEventName();
 }

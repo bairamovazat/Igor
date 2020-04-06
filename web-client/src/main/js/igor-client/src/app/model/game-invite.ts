@@ -4,6 +4,8 @@ export class GameInvite {
   //Кто отпраивл приглашение
   public initiator: Number;
 
+  public initiatorLogin:string;
+
   //Кто получит
   public invited: Number;
 

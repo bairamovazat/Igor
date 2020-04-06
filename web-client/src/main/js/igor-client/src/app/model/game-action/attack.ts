@@ -2,13 +2,13 @@ import {Person} from "../person";
 
 export class Attack {
   public actionName: String = "Attack";
-  public xAbscissa: number = null;
-  public yOrdinate: number = null;
+  public x: number = null;
+  public y: number = null;
   public person:Person = null;
 
-  constructor(xAbscissa: number, yOrdinate: number, person: Person) {
-    this.xAbscissa = xAbscissa;
-    this.yOrdinate = yOrdinate;
+  constructor(x: number, y: number, person: Person) {
+    this.x = x;
+    this.y = y;
     this.person = person;
   }
 }

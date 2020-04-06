@@ -2,6 +2,7 @@ package com.apeiron.igor.model.db;
 
 import com.apeiron.igor.model.db.Role;
 import com.apeiron.igor.model.db.State;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,6 +23,7 @@ public class User {
 
     @Column(unique = true)
     private String login;
+    @JsonIgnore
     private String hashPassword;
     private String name;
 

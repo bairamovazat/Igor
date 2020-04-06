@@ -3,5 +3,6 @@ export enum Url {
   login = "login",
   home = "home",
   logout = "logout",
-  gameSearch = "game-search"
+  gameSearch = "game-search",
+  game = "game"
 }

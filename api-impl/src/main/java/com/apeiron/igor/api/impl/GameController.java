@@ -7,6 +7,7 @@ import com.apeiron.igor.model.memory.action.Attack;
 import com.apeiron.igor.model.memory.action.ChosePerson;
 import com.apeiron.igor.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -25,14 +26,13 @@ public class GameController {
     private GameService gameService;
 
     @MessageMapping(GameUrl.sendChosePerson + "/{gameId}")
-    public void chosePerson(@Payload ChosePerson msg, Principal principal, @PathVariable String gameId) throws Exception {
+    public void chosePerson(@Payload ChosePerson msg, Principal principal,  @DestinationVariable("gameId") String gameId) throws Exception {
         gameService.chosePerson(msg, (PrincipalImpl)principal, gameId);
     }
 
     @MessageMapping(GameUrl.sendAttack + "/{gameId}")
-    public void sendAttack(@Payload Attack msg, Principal principal, @PathVariable String gameId) throws Exception {
+    public void sendAttack(@Payload Attack msg, Principal principal, @DestinationVariable("gameId") String gameId) throws Exception {
         gameService.sendAttack(msg, (PrincipalImpl)principal, gameId);
-
     }
 
 }

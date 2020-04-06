@@ -4,5 +4,5 @@ import com.apeiron.igor.model.memory.event.Event;
 
 @FunctionalInterface
 public interface RoomCallback {
-    void callback(Event event);
+    void callback(Event event, String roomId);
 }

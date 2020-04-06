@@ -13,7 +13,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class EnemyPlayerAttack implements Event {
-    public String actionName = "EnemyPlayerAttack";
+    @Builder.Default
+    public String eventName = "EnemyPlayerAttack";
     public Integer xAbscissa;
     public Integer yOrdinate;
     public Person person;

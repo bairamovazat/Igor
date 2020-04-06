@@ -15,6 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class EnemyPlayerChosePerson implements Event {
+    @Builder.Default
     public String eventName = "EnemyPlayerChosePerson";
     private List<Person> personList = new ArrayList<>();
 

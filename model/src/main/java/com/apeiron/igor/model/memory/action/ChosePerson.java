@@ -14,7 +14,8 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class ChosePerson implements Acton {
-    private String actionName;
+    @Builder.Default
+    private String actionName = "ChosePerson";
     private List<Person> personList;
 
     public User user;

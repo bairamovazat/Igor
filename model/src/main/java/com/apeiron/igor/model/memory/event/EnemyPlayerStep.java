@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class EnemyPlayerStep implements Event {
+    @Builder.Default
     public String eventName = "EnemyPlayerStep";
 
     public User user;

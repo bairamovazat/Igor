@@ -1,3 +1,3 @@
 export enum PersonAssetsSrc {
-  assassin, marksman, priest, swords_woman, tank, wizard
+  assassin="assassin", marksman="marksman", priest="priest", swords_woman="swords_woman", tank="tank", wizard="wizard"
 }

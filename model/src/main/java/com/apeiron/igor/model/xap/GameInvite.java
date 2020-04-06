@@ -22,6 +22,8 @@ public class GameInvite {
     //Кто отпраивл приглашение
     private Long initiator;
 
+    public String initiatorLogin;
+
     //Кто получит
     private Long invited;
 
